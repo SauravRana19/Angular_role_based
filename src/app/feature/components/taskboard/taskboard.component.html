@@ -1,0 +1,15 @@
+<div class="grid" *ngIf="!loading">
+    <div class="col-3 ml-8  drag-column" *ngFor="let task  of tasks | keyvalue" [ngClass]="'cards'">
+        <p-card header="{{task.key}}">
+            <span *ngFor="let item of $any(task).value" [ngClass]="'li'">
+                <div pDroppable="products" (onDrop)="drop(item)">
+
+                    <div class="product-item" pDraggable="products" (onDragStart)="dragStart(item)"
+                        >
+                        {{item.task}}
+                    </div>
+                </div>
+            </span>
+        </p-card>
+    </div>
+</div>

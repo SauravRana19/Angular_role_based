@@ -1,0 +1,103 @@
+<p-dialog header="Add User" [(visible)]="display" (onHide)="closeform()" [modal]="true" [draggable]="false" [resizable]="false">
+
+    <form [formGroup]="userform" [ngClass]="'loginform'" (ngSubmit)="submit()">
+        <div class="grid">
+            <div class="col-4">
+                <div class="field p-fluid loginfields">
+                    <label for="inputtext-left">FirstName</label>
+                    <input type="text"  formControlName="firstname" pInputText
+                        pTooltip="Enter firstname" pInputText>
+                    <span
+                        *ngIf="userform.controls.firstname.invalid && (userform.controls.firstname.dirty || userform.controls.firstname.touched)">
+                        <small class="p-error block"
+                            *ngIf="userform.controls.firstname.errors?.['required']">Required.</small>
+                        <small class="p-error block" *ngIf="userform.controls.firstname.errors?.['pattern']"> Invalid
+                            Name.</small>
+                    </span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="field p-fluid loginfields">
+                    <label for="inputtext-left">LastName</label>
+                    <input type="text"  formControlName="lastname" pInputText
+                        pTooltip="Enter lastname" pInputText>
+                    <span
+                        *ngIf="userform.controls.lastname.invalid && (userform.controls.lastname.dirty || userform.controls.lastname.touched)">
+                        <small class="p-error block"
+                            *ngIf="userform.controls.lastname.errors?.['required']">Required.</small>
+                        <small class="p-error block" *ngIf="userform.controls.lastname.errors?.['pattern']">Invalid
+                            Name.</small>
+                    </span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="field p-fluid mt-5">
+                    <p-dropdown [options]="gender" placeholder="Select a Gender" formControlName="gender"
+                        optionLabel="value" optionValue="value"></p-dropdown>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-4">
+                <div class="field p-fluid mt-2 ">
+                    <span>Role</span>
+                    <p-dropdown [options]="role" placeholder="Assign a Role" formControlName="role" optionLabel="value"
+                        optionValue="value"></p-dropdown>
+                </div>
+            </div>
+            <div class="col-4">
+
+                <div class="field p-fluid loginfields">
+                    <label for="inputtext-left">Email</label>
+
+                    <input type="text"  formControlName="email" pInputText pTooltip="Enter email"
+                        pInputText>
+                    <span
+                        *ngIf="userform.controls.email.invalid && (userform.controls.email.dirty || userform.controls.email.touched)">
+                        <small class="p-error block"
+                            *ngIf="userform.controls.email.errors?.['required']">Required.</small>
+                        <small class="p-error block" *ngIf="userform.controls.email.errors?.['pattern']">Email is
+                            Invalid.</small>
+                    </span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="field p-fluid loginfields">
+                    <label for="inputtext-left">Password</label>
+                    <span class=" p-input-icon-right">
+                        <i [ngClass]=" pswd ? 'pi pi-eye' : 'pi pi-eye-slash' " (click)="pswd = !pswd"></i>
+                        <input [type]=" pswd ? 'password' :'text'" formControlName="password"
+                            pTooltip="Enter Password" pInputText>
+                    </span>
+                    <span
+                        *ngIf="userform.controls.password.invalid && (userform.controls.password.dirty || userform.controls.password.touched)">
+                        <small class="p-error block"
+                            *ngIf="userform.controls.password.errors?.['required']">Required.</small>
+                        <small class="p-error block" *ngIf="userform.controls.password.errors?.['pattern']">Password is
+                            Invalid.</small>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-4">
+                <div class="field p-fluid loginfields">
+                    <label for="inputtext-left">address</label>
+                    <input type="text"  formControlName="address" pTooltip="Enter address"
+                        pInputText>
+                    <span
+                        *ngIf="userform.controls.address.invalid && (userform.controls.address.dirty || userform.controls.address.touched)">
+                        <small class="p-error block"
+                            *ngIf="userform.controls.address.errors?.['required']">Required.</small>
+                        <small class="p-error block" *ngIf="userform.controls.address.errors?.['pattern']">address
+                            is
+                            Invalid.</small>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button pButton type="submit"  [ngClass]="'submitbtn'" label="Submit....."></button>
+        </div>
+    </form>
+</p-dialog>

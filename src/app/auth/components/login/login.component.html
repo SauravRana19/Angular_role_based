@@ -1,0 +1,42 @@
+<div class="grid loginpage">
+    <div class="col-6 ">
+        <img src="../../../../assets/images/login@4x.png" [ngClass]="'loginimg'" alt="img">
+    </div>
+    <div class="col-6">
+
+        <form [formGroup]="loginform" [ngClass]="'loginform'" (ngSubmit)="submit()">
+            <h1>Login</h1>
+            <div class="field p-fluid loginfields">
+                <label for="inputtext-left">Email</label>
+                <span class=" p-input-icon-left">
+                    <i class="pi pi-user"></i>
+                    <input type="text" id="inputtext-left" formControlName="email" pInputText pTooltip="Enter email" pInputText>
+                </span>
+                <span
+                    *ngIf="loginform.controls.email.invalid && (loginform.controls.email.dirty || loginform.controls.email.touched)">
+                    <small class="p-error block" *ngIf="loginform.controls.email.errors?.['required']">Required.</small>
+                    <small class="p-error block" *ngIf="loginform.controls.email.errors?.['pattern']">Email is
+                        Invalid.</small>
+                </span>
+            </div>
+            <div class="field p-fluid loginfields">
+                <label for="inputtext-left">Password</label>
+                <span class=" p-input-icon-right">
+                    <i [ngClass]=" pswd ? 'pi pi-eye' : 'pi pi-eye-slash' " (click)="pswd = !pswd"></i>
+                    <input [type]=" pswd ? 'password' :'text'" id="inputtext-left" formControlName="password" pTooltip="Enter Password"
+                        pInputText>
+                </span>
+                <span
+                    *ngIf="loginform.controls.password.invalid && (loginform.controls.password.dirty || loginform.controls.password.touched)">
+                    <small class="p-error block"
+                        *ngIf="loginform.controls.password.errors?.['required']">Required.</small>
+                    <small class="p-error block" *ngIf="loginform.controls.password.errors?.['pattern']">Password is
+                        Invalid.</small>
+                </span>
+            </div>
+            <div>
+                <button pButton type="submit" [ngClass]="'submitbtn'" label="Login....."></button>
+            </div>
+        </form>
+    </div>
+</div>

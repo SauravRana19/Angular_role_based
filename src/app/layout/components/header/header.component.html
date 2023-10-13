@@ -1,0 +1,20 @@
+<header>
+    <div class="grid navbar">
+        <div class="col-1">
+            <img src="../../../../assets/images/Logo-TotalEnergies-2021-1.jpg" class="logo">
+        </div>
+
+        <div class="col-9">
+            <button pButton pRipple type="button" class="p-button-raised p-button-success" icon="pi pi-align-justify"
+                (click)="toggle()"></button>
+            <!-- <span [ngClass]="'titile'">{{title}}</span> -->
+        </div>
+
+        <div class="col-2">
+            <div [ngClass]="'navbtn'">
+                <p-splitButton icon="pi pi-user" styleClass="p-button-raised p-button-warning mr-2 mb-2" [label]="loginuser"
+                    [model]="items"></p-splitButton>
+            </div>
+        </div>
+    </div>
+</header>

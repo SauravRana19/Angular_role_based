@@ -1,0 +1,33 @@
+<p-dialog header="Add Task" [(visible)]="displays" (onHide)="closeform()" [modal]="true" [draggable]="false"
+    [resizable]="false" [style]="{width: '50vw' ,height:'50vh'}">
+    <form [formGroup]="taskform" [ngClass]="'loginform'" (ngSubmit)="submit()">
+        <div class="grid">
+            <div class="col-4">
+                <div class="field p-fluid loginfields">
+                    <label for="inputtext-left">task</label>
+                    <input type="text" formControlName="task" pInputText pTooltip="Enter task" pInputText>
+                    <span
+                        *ngIf="taskform.controls.task.invalid && (taskform.controls.task.dirty || taskform.controls.task.touched)">
+                        <small class="p-error block"
+                            *ngIf="taskform.controls.task.errors?.['required']">Required.</small>
+                        <small class="p-error block" *ngIf="taskform.controls.task.errors?.['pattern']"> Invalid
+                            Name.</small>
+                    </span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="field p-fluid mt-5">
+                    <p-dropdown [options]="users" placeholder="Assign to" formControlName="assignto" optionLabel="value"
+                        optionValue="value"></p-dropdown>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="field p-fluid mt-5">
+                    <p-dropdown [options]="status" placeholder="Select Status.." formControlName="status" optionLabel="value"
+                        optionValue="value"></p-dropdown>
+                </div>
+                <button pButton type="submit" [ngClass]="'submitbtn'" label="Submit....."></button>
+            </div>
+        </div>
+    </form>
+</p-dialog>

@@ -1,0 +1,118 @@
+{
+  "login": [
+    {
+      "id": 1,
+      "firstname": "saurav",
+      "lastname": "Rana",
+      "email": "saurav19@gmail.com",
+      "password": "saurav19@D",
+      "address": "Mohali",
+      "role": "superadmin",
+      "gender": "Male",
+      "createdby": 1
+    },
+    {
+      "id": 2,
+      "firstname": "akshay",
+      "lastname": "rana",
+      "gender": "Male",
+      "email": "akshay19@gmail.com",
+      "password": "akshay19@D",
+      "role": "admin",
+      "address": "xyz",
+      "createdby": 1
+    },
+    {
+      "id": 3,
+      "firstname": "shruti",
+      "lastname": "singh",
+      "gender": "Female",
+      "email": "shruti19@gmail.com",
+      "password": "shruti19@D",
+      "role": "user",
+      "address": "chandighar",
+      "createdby": 1
+    },
+    {
+      "id": 4,
+      "firstname": "pardeep",
+      "lastname": "rana",
+      "gender": "Male",
+      "email": "pardepp30@gmail.com",
+      "password": "pardeep19@D",
+      "role": "user",
+      "address": "mohali",
+      "createdby": 2
+    },
+    {
+      "id": 5,
+      "firstname": "saurav",
+      "lastname": "Singh",
+      "gender": "Male",
+      "email": "saurav29@gmail.com",
+      "password": "saurav19@D",
+      "role": "user",
+      "address": "chdn",
+      "createdby": 2
+    },
+    {
+      "id": 6,
+      "firstname": "sahil",
+      "lastname": "singh",
+      "gender": "Male",
+      "email": "sahil20@gmail.com",
+      "password": "sahil@D19",
+      "role": "viewer",
+      "address": "asd",
+      "createdby": 2
+    },
+    {
+      "id": 7,
+      "firstname": "diljeet",
+      "lastname": "dosanj",
+      "gender": "Male",
+      "email": "diljeet19@gmail.com",
+      "password": "diljeet19@D",
+      "role": "admin",
+      "address": "qwe",
+      "createdby": 1
+    },
+    {
+      "id": 8,
+      "firstname": "happy",
+      "lastname": "singh",
+      "gender": "Male",
+      "email": "happy20@gmail.com",
+      "password": "happy19@D",
+      "role": "user",
+      "address": "fdsa",
+      "createdby": 7
+    }
+  ],
+  "task": [
+    {
+      "id": 1,
+      "task": "add name in form",
+      "status": "pending",
+      "assignto": "akshay19@gmail.com",
+      "assignby": "",
+      "createdby": 1
+    },
+    {
+      "id": 2,
+      "task": "change id of users",
+      "status": "todo",
+      "assignto": "shruti19@gmail.com",
+      "assignby": "",
+      "createdby": 1
+    },
+    {
+      "id": 3,
+      "task": "change admin task",
+      "status": "pending",
+      "assignto": "sahil20@gmail.com",
+      "assignby": "",
+      "createdby": 2
+    }
+  ]
+}
