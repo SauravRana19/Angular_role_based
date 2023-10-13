@@ -23,7 +23,7 @@ export class TaskformComponent implements OnInit {
     status: ['', [Validators.required]],
     assignto: ['', [Validators.required]],
     assignby: ['', [Validators.required]],
-    createdby:['']
+    createdby: [''],
   });
 
   users: any;
@@ -44,7 +44,6 @@ export class TaskformComponent implements OnInit {
     this.api.data.subscribe((res: any) => {
       let data = res.map(({ email }: any) => ({ value: email }));
       this.users = data;
-      // console.log(this.users);
     });
   }
   closeform() {

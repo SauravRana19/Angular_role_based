@@ -1,38 +1,41 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './layout/components/main/main.component';
+import { PagenotfoundComponent } from './layout/components/pagenotfound/pagenotfound.component';
+import { AuthguardGuard } from './core/guards/authguard/authguard.guard';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'auth',
-    pathMatch: 'full'
+    pathMatch: 'full',
+  },
+  // { path: '**', component: PagenotfoundComponent },
+
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'auth',  
-    loadChildren: () => import('./auth/auth.module')  
-    .then(m => m.AuthModule)
-  },
-  {
-    path: 'main',  
+    path: 'main',
     component: MainComponent,
-    children:[
+    children: [
       {
-        path:'',
-        loadChildren: () => import('./feature/feature.module')  
-        .then(m => m.FeatureModule)
-      }
-    ]
+        path: '',
+        loadChildren: () =>
+          import('./feature/feature.module').then((m) => m.FeatureModule),
+      },
+    ],
   },
   // {
-  //   path: 'feature',  
-  //   loadChildren: () => import('./feature/feature.module')  
+  //   path: 'feature',
+  //   loadChildren: () => import('./feature/feature.module')
   //   .then(m => m.FeatureModule)
   // },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

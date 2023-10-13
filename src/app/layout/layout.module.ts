@@ -7,9 +7,11 @@ import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { MainComponent } from '../layout/components/main/main.component';
 import { CoreModule } from '../core/core.module';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+
 
 @NgModule({
-  declarations: [HeaderComponent, SidebarComponent, MainComponent],
+  declarations: [HeaderComponent, SidebarComponent, MainComponent, PagenotfoundComponent],
   imports: [
     CommonModule,
     SplitButtonModule,

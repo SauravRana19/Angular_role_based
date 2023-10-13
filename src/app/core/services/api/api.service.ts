@@ -36,7 +36,10 @@ export class ApiService {
           Math.random().toString(36).substring(2);
         localStorage.setItem('token', this.token);
         alert('Login Successful');
-        this.router.navigate(['main/dashboard']);
+        if(JSON.parse(localStorage.getItem('credential')!)[1] == 'viewer'){
+          this.router.navigate(['main/users']);
+        }
+        this.router.navigate(['main/users']);
       } else {
         alert('Wrong Credentials');
       }
@@ -63,7 +66,7 @@ export class ApiService {
     return this.http.post<any[]>(this.usersUrl + 'login', data);
   }
   updateUser(data: any): Observable<any[]> {
-    return this.http.put<any[]>(this.usersUrl + 'login' + data.id, data);
+    return this.http.put<any[]>(this.usersUrl + 'login/' + data.id, data);
   }
   deleteUser(id: number): Observable<any[]> {
     return this.http.delete<any[]>(this.usersUrl + 'login/' + id);

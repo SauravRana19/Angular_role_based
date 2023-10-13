@@ -11,10 +11,10 @@ ApiService;
 })
 export class TaskviewComponent implements OnInit {
   @ViewChild('taskComponent', { static: false })
-  childComponent!: TaskformComponent; 
+  childComponent!: TaskformComponent;
 
   tasks!: any[];
-  constructor(private api: ApiService, public common: CommonService,) {}
+  constructor(private api: ApiService, public common: CommonService) {}
   cols!: any[];
 
   ngOnInit(): void {
@@ -23,14 +23,12 @@ export class TaskviewComponent implements OnInit {
       { field: 'assignto', header: 'Assignto' },
       { field: 'status', header: 'Status' },
     ];
-    this.api.taskData()
+    this.api.taskData();
     this.api.taskdata.subscribe((res) => {
       this.tasks = res;
     });
- 
-   
   }
   taskopen() {
-    this.childComponent?.modalopen()
+    this.childComponent?.modalopen();
   }
 }

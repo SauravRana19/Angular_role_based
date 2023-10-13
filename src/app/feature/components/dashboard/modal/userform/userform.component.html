@@ -97,7 +97,7 @@
             </div>
         </div>
         <div>
-            <button pButton type="submit"  [ngClass]="'submitbtn'" label="Submit....."></button>
+            <button pButton type="submit"  [ngClass]="'submitbtn'" [label]="submitbtn ? 'Submit.....' :' Update'"></button>
         </div>
     </form>
 </p-dialog>

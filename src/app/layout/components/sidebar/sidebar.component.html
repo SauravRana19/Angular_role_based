@@ -1,10 +1,10 @@
 <div>
-    <p-sidebar [(visible)]="leftsidebar" [baseZIndex]="10000" styleClass="w-15rem" [transitionOptions]="'250ms'">
+    <p-sidebar [(visible)]="leftsidebar" (onHide)="leftclose()"  [baseZIndex]="10000" styleClass="w-15rem" [transitionOptions]="'250ms'">
         <p-menu [model]="items" [style]="{ width: '200px', border:'none' } " [ngClass]="'menuitem'"></p-menu>
     </p-sidebar>
 </div>
 <div>
-    <p-sidebar [(visible)]="rightsidebar" position="right" [baseZIndex]="10000" [transitionOptions]="'250ms'">
+    <p-sidebar [(visible)]="rightsidebar" (onHide)="rightclose()" position="right" [baseZIndex]="10000" [transitionOptions]="'250ms'">
         <h2>Name: {{userinfo}}</h2>
     </p-sidebar>
 </div>

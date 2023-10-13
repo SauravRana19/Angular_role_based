@@ -23,9 +23,8 @@ export class SidebarComponent implements OnInit {
         label: 'Users',
         icon: 'pi pi-users',
         command: () => {
-          this.router.navigate(['main/dashboard']);
-          this.leftsidebar = false;
-          // this.changetitle('Users')
+          this.router.navigate(['main/users']);
+          this.service.leftsidebarvalue.next(false);
         },
       },
       {
@@ -33,7 +32,7 @@ export class SidebarComponent implements OnInit {
         icon: 'pi pi-calendar-plus',
         command: () => {
           this.router.navigate(['main/taskview']);
-          this.leftsidebar = false;
+          this.service.leftsidebarvalue.next(false);
         },
       },
       {
@@ -41,10 +40,11 @@ export class SidebarComponent implements OnInit {
         icon: 'pi pi-calendar-plus',
         command: () => {
           this.router.navigate(['main/taskboard']);
-          this.leftsidebar = false;
+          this.service.leftsidebarvalue.next(false);
         },
       },
     ];
+    this.sidebarmenu(JSON.parse(localStorage.getItem('credential')!)[1]),
 
     this.service.leftsidebar.subscribe((res) => {
       this.leftsidebar = res;
@@ -55,5 +55,34 @@ export class SidebarComponent implements OnInit {
 
       this.rightsidebar = res;
     });
+  }
+  leftclose() {
+    this.service.leftsidebarvalue.next(false);
+  }
+  rightclose() {
+    console.log('click');
+    this.service.rightsidebarvalue.next(false);
+  }
+  sidebarmenu(value: string) {
+    if (value == 'viewer') {
+      this.items = [
+        {
+          label: 'Users',
+          icon: 'pi pi-users',
+          command: () => {
+            this.router.navigate(['main/users']);
+            this.service.leftsidebarvalue.next(false);
+          },
+        },
+        {
+          label: 'TaskBoard',
+          icon: 'pi pi-calendar-plus',
+          command: () => {
+            this.router.navigate(['main/taskboard']);
+            this.service.leftsidebarvalue.next(false);
+          },
+        },
+      ];
+    }
   }
 }

@@ -17,6 +17,7 @@ export class UserformComponent implements OnInit {
   ) {}
   display: any;
   pswd: boolean = true;
+  submitbtn: boolean = true;
 
   gender = [{ value: 'Male' }, { value: 'Female' }, { value: 'Other' }];
   role = [{ value: 'admin' }, { value: 'user' }, { value: 'viewer' }];
@@ -37,11 +38,16 @@ export class UserformComponent implements OnInit {
     this.common.modal.subscribe((res) => {
       this.display = res;
     });
+    this.changestatus(JSON.parse(localStorage.getItem('credential')!)[1]);
   }
   updateuser(i: number) {
     console.log('click');
     this.display = true;
+    this.api.userdata();
+    this.submitbtn = false;
     this.api.data.subscribe((res: any) => {
+      console.log(res);
+
       let data = res[i];
       this.userform.patchValue({
         ...data,
@@ -61,8 +67,21 @@ export class UserformComponent implements OnInit {
     this.userform.patchValue({
       createdby: JSON.parse(localStorage.getItem('credential')!)[0],
     });
-    this.api.addUser(this.userform.value).subscribe((res) => {
+    if (this.submitbtn) {
+      this.api.addUser(this.userform.value).subscribe((res) => {
+        this.api.userdata();
+      });
+    }
+    this.api.updateUser(this.userform.value).subscribe((res) => {
       this.api.userdata();
     });
+  }
+  changestatus(value: string) {
+    console.log('value', value);
+    if (value == 'user') {
+      this.role = [{ value: 'user' }, { value: 'viewer' }];
+    } else if (value == 'viewer') {
+      this.role = [{ value: 'viewer' }];
+    }
   }
 }

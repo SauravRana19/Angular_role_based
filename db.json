@@ -14,7 +14,7 @@
     {
       "id": 2,
       "firstname": "akshay",
-      "lastname": "rana",
+      "lastname": "kumar",
       "gender": "Male",
       "email": "akshay19@gmail.com",
       "password": "akshay19@D",
@@ -46,14 +46,14 @@
     },
     {
       "id": 5,
-      "firstname": "saurav",
+      "firstname": "dhoni",
       "lastname": "Singh",
       "gender": "Male",
       "email": "saurav29@gmail.com",
       "password": "saurav19@D",
       "role": "user",
       "address": "chdn",
-      "createdby": 2
+      "createdby": 1
     },
     {
       "id": 6,
@@ -78,15 +78,15 @@
       "createdby": 1
     },
     {
-      "id": 8,
-      "firstname": "happy",
-      "lastname": "singh",
+      "id": 9,
+      "firstname": "xigi",
+      "lastname": "kumar",
       "gender": "Male",
-      "email": "happy20@gmail.com",
-      "password": "happy19@D",
-      "role": "user",
-      "address": "fdsa",
-      "createdby": 7
+      "email": "saurav40@gmail.com",
+      "password": "saurav40@D",
+      "role": "viewer",
+      "address": "yuio",
+      "createdby": 1
     }
   ],
   "task": [
