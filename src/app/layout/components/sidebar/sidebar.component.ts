@@ -91,6 +91,33 @@ export class SidebarComponent implements OnInit {
           },
         },
       ];
+    } else if( value == 'user'){
+      this.items = [
+        {
+          label: 'Profile',
+          icon: 'pi pi-user',
+          command: () => {
+            this.router.navigate(['main/viewer']);
+            this.service.leftsidebarvalue.next(false);
+          },
+        },
+        {
+          label: 'Users',
+          icon: 'pi pi-users',
+          command: () => {
+            this.router.navigate(['main/users']);
+            this.service.leftsidebarvalue.next(false);
+          },
+        },
+        {
+          label: 'TaskBoard',
+          icon: 'pi pi-calendar-plus',
+          command: () => {
+            this.router.navigate(['main/taskboard']);
+            this.service.leftsidebarvalue.next(false);
+          },
+        },
+      ];
     }
   }
 }

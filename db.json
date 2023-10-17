@@ -13,7 +13,7 @@
     },
     {
       "id": 2,
-      "firstname": "akshay",
+      "firstname": "Akshay",
       "lastname": "rana",
       "gender": "Male",
       "email": "akshy19@gmail.com",
@@ -54,13 +54,57 @@
       "role": "user",
       "address": "chd",
       "createdby": 2
+    },
+    {
+      "id": 6,
+      "firstname": "sonali",
+      "lastname": "sharma",
+      "gender": "Female",
+      "email": "sonali20@gmail.com",
+      "password": "sonali19@D",
+      "role": "user",
+      "address": "mohali",
+      "createdby": 1
+    },
+    {
+      "id": 7,
+      "firstname": "akshay",
+      "lastname": "kumar",
+      "gender": "Male",
+      "email": "akshay20@gmail.com",
+      "password": "akshy87@gW",
+      "role": "viewer",
+      "address": "delhi",
+      "createdby": 1
+    },
+    {
+      "id": 8,
+      "firstname": "sonal",
+      "lastname": "dhiman",
+      "gender": "Male",
+      "email": "sonal19@gmail.com",
+      "password": "sonal19@D",
+      "role": "user",
+      "address": "london",
+      "createdby": 1
+    },
+    {
+      "id": 9,
+      "firstname": "sunny",
+      "lastname": "deol",
+      "gender": "Male",
+      "email": "sunnydeol20@gmail.com",
+      "password": "sunn@1WD",
+      "role": "viewer",
+      "address": "delhi",
+      "createdby": 8
     }
   ],
   "task": [
     {
       "id": 1,
       "task": "time schedul ?",
-      "status": "pending",
+      "status": "todo",
       "assignto": "saurav19@gmail.com",
       "assignby": "",
       "createdby": 1
@@ -76,16 +120,8 @@
     {
       "id": 3,
       "task": "change name of header",
-      "status": "done",
-      "assignto": "rahul19@gmail.com",
-      "assignby": null,
-      "createdby": 1
-    },
-    {
-      "id": 4,
-      "task": "age limit ? ",
       "status": "pending",
-      "assignto": "ritesh19@gmail.com",
+      "assignto": "rahul19@gmail.com",
       "assignby": null,
       "createdby": 1
     }

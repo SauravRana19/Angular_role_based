@@ -2,13 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   usersUrl: string = 'http://localhost:3000/';
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toaster: ToastrService
+  ) {}
   token: string = '';
   // credential = JSON.parse(localStorage.getItem('credential')!);
 
@@ -38,7 +43,11 @@ export class ApiService {
           Math.random().toString(36).substring(2) +
           Math.random().toString(36).substring(2);
         localStorage.setItem('token', this.token);
-        alert('Login Successful');
+        this.toaster.success('Login Successful', '', {
+          positionClass: 'toast-top-center',
+          progressBar: true,
+        });
+
         if (JSON.parse(localStorage.getItem('credential')!)[1] == 'viewer') {
           console.log(JSON.parse(localStorage.getItem('credential')!)[1]);
           this.router.navigate(['main/viewer']);
@@ -48,7 +57,10 @@ export class ApiService {
           this.router.navigate(['main/users']);
         }
       } else {
-        alert('Wrong Credentials');
+        this.toaster.warning('Wrong Credentials', '', {
+          positionClass: 'toast-top-center',
+          progressBar: true,
+        });
       }
     });
   }
@@ -59,11 +71,13 @@ export class ApiService {
       } else {
         let users = res.filter((user: any) => {
           if (
-            JSON.parse(localStorage.getItem('credential')!)[0] === user.createdby) { 
+            JSON.parse(localStorage.getItem('credential')!)[0] ===
+            user.createdby
+          ) {
             return user;
           }
         });
-        
+
         this.response.next(users);
       }
     });
@@ -103,6 +117,9 @@ export class ApiService {
     return this.http.patch<any[]>(this.usersUrl + 'task/' + key, {
       status: data,
     });
+  }
+  deletetask(id: number) {
+    return this.http.delete<any[]>(this.usersUrl + 'task/' + id);
   }
   userprofile(id: number) {
     this.http.get<any[]>(this.usersUrl + 'login/' + id).subscribe((res) => {

@@ -8,6 +8,7 @@ import { MenuModule } from 'primeng/menu';
 import { MainComponent } from '../layout/components/main/main.component';
 import { CoreModule } from '../core/core.module';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     SidebarModule,
     MenuModule,
     CoreModule,
+    
   ],
   exports: [HeaderComponent, SidebarComponent],
 })

@@ -17,6 +17,7 @@ export class TaskviewComponent implements OnInit {
   constructor(private api: ApiService, public common: CommonService) {}
   cols!: any[];
 
+
   ngOnInit(): void {
     this.cols = [
       { field: 'task', header: 'Task' },
@@ -27,8 +28,14 @@ export class TaskviewComponent implements OnInit {
     this.api.taskdata.subscribe((res) => {
       this.tasks = res;
     });
+
   }
   taskopen() {
     this.childComponent?.modalopen();
+  }
+  delete(id:number){
+    this.api.deletetask(id).subscribe((res)=>{
+      this.api.taskData()
+    })
   }
 }

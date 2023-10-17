@@ -1,8 +1,11 @@
-// .box1{
-//     background-color: pink;
-//     border: 1px solid red;
-// }
-// .box2{
-//     background-color: rgb(187, 214, 161);
-//     border: 1px solid red;
-// }
+.loader{
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    z-index: 9999;
+}
+.graph{
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  
+    margin: 1% 0 0 0;
+}

@@ -37,5 +37,6 @@
         </tr>
     </ng-template>
 </p-table>
+<p-progressSpinner *ngIf="!products" [ngClass]="'loader'"></p-progressSpinner>
 <!-- </div> -->
 <app-userform #childComponent></app-userform>

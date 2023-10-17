@@ -1,12 +1,24 @@
-<div class="grid">
-    <div class="col-12 md:col-4 lg:col-4 box1"><div>
-        <canvas id="canvas">{{chart}}</canvas>
-      </div></div>
-    <div class="col-12 md:col-4 lg:col-4 box1">B</div>
-    <div class="col-12 md:col-4 lg:col-4 box1">C</div>
+<div *ngIf="loading">
+    <div class="grid">
+        <div class="col-6 graph">
+            <app-barchart [bardata]="data"></app-barchart>
+        </div>
+        <div class="col-6 graph">
+            <app-piechart [piedata]="data"></app-piechart>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-6 graph">c
+            <app-linechart [linedata]="data"></app-linechart>
+        </div>
+        <div class="col-6 graph">
+            <app-polarchart [polardata]="data"></app-polarchart>
+        </div>
+    </div>
+    <!-- <div class="grid">
+    <div class="col-12 md:col-4 lg:col-6 ">E</div>
+    <div class="col-12 md:col-4 lg:col-6 ">F</div>
+</div>  -->
+
 </div>
-<div class="grid">
-    <div class="col-12 md:col-4 lg:col-4 box2">D</div>
-    <div class="col-12 md:col-4 lg:col-4 box2">E</div>
-    <div class="col-12 md:col-4 lg:col-4 box2">F</div>
-</div>
+<p-progressSpinner *ngIf="!loading" [ngClass]="'loader'"></p-progressSpinner>

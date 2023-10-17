@@ -80,9 +80,7 @@ export class UserformComponent implements OnInit {
   changestatus(value: string) {
     // console.log('value', value);
     if (value == 'user') {
-      this.role = [{ value: 'user' }, { value: 'viewer' }];
-    } else if (value == 'viewer') {
-      this.role = [{ value: 'viewer' }];
+      this.role = [ { value: 'viewer' }];
     }
   }
   editprofile(i:number){
