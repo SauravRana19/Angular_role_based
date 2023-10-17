@@ -1,0 +1,24 @@
+<div [ngClass]="'card'">
+    <p-card>
+        <ul [ngClass]="'list'">
+            <h2>Profile <span><i class="pi pi-user" [ngClass]="'icon'"></i></span></h2>
+            <li>
+                <span ngClass="title">Full_Name:</span> <span ngClass="details"> {{profile.firstname}}
+                    {{profile.lastname}} </span>
+            </li>
+            <li>
+                <span ngClass="title">Gender:</span><span ngClass="details"> {{profile.gender}}</span>
+            </li>
+            <li>
+                <span ngClass="title">Email: </span><span ngClass="details">{{profile.email}}</span> 
+            </li>
+            <li>
+                <span ngClass="title">Address: </span><span ngClass="details">{{profile.address}}</span> 
+            </li>
+        </ul>
+        <ng-template pTemplate="footer">
+            <p-button label="Edit" [ngClass]="'savebtn'" (onClick)="edit(profile.id)" ></p-button>
+        </ng-template>
+    </p-card>
+</div>
+<app-userform #childComponent></app-userform>

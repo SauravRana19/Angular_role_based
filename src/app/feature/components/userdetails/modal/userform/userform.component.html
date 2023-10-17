@@ -1,4 +1,4 @@
-<p-dialog header="Add User" [(visible)]="display" (onHide)="closeform()" [modal]="true" [draggable]="false" [resizable]="false">
+<p-dialog [header]="submitbtn ? 'Add User' :' Update'" [(visible)]="display" (onHide)="closeform()" [modal]="true" [draggable]="false" [resizable]="false">
 
     <form [formGroup]="userform" [ngClass]="'loginform'" (ngSubmit)="submit()">
         <div class="grid">
@@ -97,7 +97,7 @@
             </div>
         </div>
         <div>
-            <button pButton type="submit"  [ngClass]="'submitbtn'" [label]="submitbtn ? 'Submit.....' :' Update'"></button>
+            <button pButton type="submit"  [ngClass]="'submitbtn'" [disabled]="!userform.valid" [label]="submitbtn ? 'Submit.....' :' Update'"></button>
         </div>
     </form>
 </p-dialog>

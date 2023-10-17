@@ -11,10 +11,7 @@ export class RedirectGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let token = localStorage.getItem("token")
-      console.log(typeof(token))
-
       if(!token){
-        console.log(false)
         return true;
       }
       else{

@@ -28,6 +28,14 @@ export class SidebarComponent implements OnInit {
         },
       },
       {
+        label: 'Dashboard',
+        icon: 'pi pi-chart-bar',
+        command: () => {
+          this.router.navigate(['main/dashboard']);
+          this.service.leftsidebarvalue.next(false);
+        },
+      },
+      {
         label: 'TaskManager',
         icon: 'pi pi-calendar-plus',
         command: () => {
@@ -51,7 +59,7 @@ export class SidebarComponent implements OnInit {
     });
 
     this.service.rightsidebar.subscribe((res) => {
-      console.log(res);
+   
 
       this.rightsidebar = res;
     });
@@ -60,17 +68,17 @@ export class SidebarComponent implements OnInit {
     this.service.leftsidebarvalue.next(false);
   }
   rightclose() {
-    console.log('click');
+
     this.service.rightsidebarvalue.next(false);
   }
   sidebarmenu(value: string) {
     if (value == 'viewer') {
       this.items = [
         {
-          label: 'Users',
-          icon: 'pi pi-users',
+          label: 'Profile',
+          icon: 'pi pi-user',
           command: () => {
-            this.router.navigate(['main/users']);
+            this.router.navigate(['main/viewer']);
             this.service.leftsidebarvalue.next(false);
           },
         },

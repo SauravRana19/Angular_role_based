@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
 import { FeatureRoutingModule } from './feature-routing.module';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LayoutModule } from '../layout/layout.module';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
-import { UserformComponent } from './components/dashboard/modal/userform/userform.component';
+import { ButtonModule } from 'primeng/button'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { TaskviewComponent } from './components/taskview/taskview.component';
@@ -15,14 +13,20 @@ import { TaskformComponent } from './components/taskview/modal/taskform/taskform
 import {DragDropModule} from 'primeng/dragdrop';
 import { TaskboardComponent } from './components/taskboard/taskboard.component';
 import {CardModule} from 'primeng/card';
+import { ViewerComponent } from './components/viewer/viewer.component';
+import { UserformComponent } from './components/userdetails/modal/userform/userform.component';
+import { usersComponent } from './components/userdetails/users.Component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
+    usersComponent,
     UserformComponent,
     TaskviewComponent,
     TaskformComponent,
     TaskboardComponent,
+    ViewerComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

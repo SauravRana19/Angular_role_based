@@ -15,6 +15,9 @@ export class ApiService {
   public response: Subject<any> = new Subject<any>();
   public data: Observable<[]> = this.response.asObservable();
 
+  public profile: Subject<any> = new Subject<any>();
+  public profiledata: Observable<[]> = this.profile.asObservable();
+
   public usertask: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   public taskdata: Observable<[]> = this.usertask.asObservable();
 
@@ -36,10 +39,14 @@ export class ApiService {
           Math.random().toString(36).substring(2);
         localStorage.setItem('token', this.token);
         alert('Login Successful');
-        if(JSON.parse(localStorage.getItem('credential')!)[1] == 'viewer'){
+        if (JSON.parse(localStorage.getItem('credential')!)[1] == 'viewer') {
+          console.log(JSON.parse(localStorage.getItem('credential')!)[1]);
+          this.router.navigate(['main/viewer']);
+        } else if (
+          JSON.parse(localStorage.getItem('credential')!)[1] !== 'viewer'
+        ) {
           this.router.navigate(['main/users']);
         }
-        this.router.navigate(['main/users']);
       } else {
         alert('Wrong Credentials');
       }
@@ -52,12 +59,11 @@ export class ApiService {
       } else {
         let users = res.filter((user: any) => {
           if (
-            JSON.parse(localStorage.getItem('credential')!)[0] ===
-            user.createdby
-          ) {
+            JSON.parse(localStorage.getItem('credential')!)[0] === user.createdby) { 
             return user;
           }
         });
+        
         this.response.next(users);
       }
     });
@@ -96,6 +102,11 @@ export class ApiService {
 
     return this.http.patch<any[]>(this.usersUrl + 'task/' + key, {
       status: data,
+    });
+  }
+  userprofile(id: number) {
+    this.http.get<any[]>(this.usersUrl + 'login/' + id).subscribe((res) => {
+      this.profile.next(res);
     });
   }
 }

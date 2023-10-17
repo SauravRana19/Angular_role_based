@@ -35,7 +35,7 @@
                 </span>
             </div>
             <div>
-                <button pButton type="submit" [ngClass]="'submitbtn'" label="Login....."></button>
+                <button pButton type="submit" [ngClass]="'submitbtn'" [disabled]="!loginform.valid" label="Login....."></button>
             </div>
         </form>
     </div>

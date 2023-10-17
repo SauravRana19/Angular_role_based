@@ -1,42 +1,12 @@
-<!-- <div *ngIf="loading"> -->
-<p-table #dt1 [columns]="cols" editMode="row" [reorderableColumns]="true" [value]="products" [paginator]="true"
-    [rows]="5" [showCurrentPageReport]="true" styleClass="p-datatable-sm"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,25,50]">
-
-    <ng-template pTemplate="caption">
-        <div class="flex">
-            <span class="p-input-icon-left">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
-                    placeholder="Search keyword" />
-            </span>
-            <button pButton pRipple icon="pi pi-user-plus" class="p-button-rounded p-button-success mr-8  ml-auto"
-                (click)="modalopen()"></button>
-        </div>
-    </ng-template>
-
-    <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th *ngFor="let col of columns" [pSortableColumn]="col.header">
-                {{col.header}}
-                <p-sortIcon [field]="col.header"></p-sortIcon>
-            </th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
-        <tr>
-            <td *ngFor="let col of columns">
-                {{rowData[col.field]}}
-            </td>
-            <td>
-                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
-                    (click)="update(index)"></button>
-                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                    (click)="delete(rowData.id)"></button>
-            </td>
-
-        </tr>
-    </ng-template>
-</p-table>
-<!-- </div> -->
-<app-userform #childComponent></app-userform>
+<div class="grid">
+    <div class="col-12 md:col-4 lg:col-4 box1"><div>
+        <canvas id="canvas">{{chart}}</canvas>
+      </div></div>
+    <div class="col-12 md:col-4 lg:col-4 box1">B</div>
+    <div class="col-12 md:col-4 lg:col-4 box1">C</div>
+</div>
+<div class="grid">
+    <div class="col-12 md:col-4 lg:col-4 box2">D</div>
+    <div class="col-12 md:col-4 lg:col-4 box2">E</div>
+    <div class="col-12 md:col-4 lg:col-4 box2">F</div>
+</div>

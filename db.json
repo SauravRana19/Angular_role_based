@@ -4,115 +4,90 @@
       "id": 1,
       "firstname": "saurav",
       "lastname": "Rana",
+      "gender": "Male",
       "email": "saurav19@gmail.com",
       "password": "saurav19@D",
-      "address": "Mohali",
       "role": "superadmin",
-      "gender": "Male",
+      "address": "Mohali",
       "createdby": 1
     },
     {
       "id": 2,
       "firstname": "akshay",
-      "lastname": "kumar",
+      "lastname": "rana",
       "gender": "Male",
-      "email": "akshay19@gmail.com",
+      "email": "akshy19@gmail.com",
       "password": "akshay19@D",
       "role": "admin",
-      "address": "xyz",
+      "address": "amb",
       "createdby": 1
     },
     {
       "id": 3,
-      "firstname": "shruti",
+      "firstname": "Rahul",
       "lastname": "singh",
-      "gender": "Female",
-      "email": "shruti19@gmail.com",
-      "password": "shruti19@D",
+      "gender": "Male",
+      "email": "rahul19@gmail.com",
+      "password": "rahul19@D",
       "role": "user",
-      "address": "chandighar",
+      "address": "chand",
       "createdby": 1
     },
     {
       "id": 4,
-      "firstname": "pardeep",
-      "lastname": "rana",
-      "gender": "Male",
-      "email": "pardepp30@gmail.com",
-      "password": "pardeep19@D",
-      "role": "user",
+      "firstname": "ritesh",
+      "lastname": "pathania",
+      "gender": "Female",
+      "email": "ritesh19@gmail.com",
+      "password": "ritesh19@D",
+      "role": "viewer",
       "address": "mohali",
-      "createdby": 2
+      "createdby": 4
     },
     {
       "id": 5,
-      "firstname": "dhoni",
-      "lastname": "Singh",
-      "gender": "Male",
-      "email": "saurav29@gmail.com",
-      "password": "saurav19@D",
-      "role": "user",
-      "address": "chdn",
-      "createdby": 1
-    },
-    {
-      "id": 6,
-      "firstname": "sahil",
+      "firstname": "sakshi",
       "lastname": "singh",
-      "gender": "Male",
-      "email": "sahil20@gmail.com",
-      "password": "sahil@D19",
-      "role": "viewer",
-      "address": "asd",
+      "gender": "Female",
+      "email": "sakshi19@gmail.com",
+      "password": "sakshi19@D",
+      "role": "user",
+      "address": "chd",
       "createdby": 2
-    },
-    {
-      "id": 7,
-      "firstname": "diljeet",
-      "lastname": "dosanj",
-      "gender": "Male",
-      "email": "diljeet19@gmail.com",
-      "password": "diljeet19@D",
-      "role": "admin",
-      "address": "qwe",
-      "createdby": 1
-    },
-    {
-      "id": 9,
-      "firstname": "xigi",
-      "lastname": "kumar",
-      "gender": "Male",
-      "email": "saurav40@gmail.com",
-      "password": "saurav40@D",
-      "role": "viewer",
-      "address": "yuio",
-      "createdby": 1
     }
   ],
   "task": [
     {
       "id": 1,
-      "task": "add name in form",
+      "task": "time schedul ?",
       "status": "pending",
-      "assignto": "akshay19@gmail.com",
+      "assignto": "saurav19@gmail.com",
       "assignby": "",
       "createdby": 1
     },
     {
       "id": 2,
-      "task": "change id of users",
+      "task": "change header",
       "status": "todo",
-      "assignto": "shruti19@gmail.com",
-      "assignby": "",
+      "assignto": "saurav19@gmail.com",
+      "assignby": null,
       "createdby": 1
     },
     {
       "id": 3,
-      "task": "change admin task",
+      "task": "change name of header",
+      "status": "done",
+      "assignto": "rahul19@gmail.com",
+      "assignby": null,
+      "createdby": 1
+    },
+    {
+      "id": 4,
+      "task": "age limit ? ",
       "status": "pending",
-      "assignto": "sahil20@gmail.com",
-      "assignby": "",
-      "createdby": 2
+      "assignto": "ritesh19@gmail.com",
+      "assignby": null,
+      "createdby": 1
     }
   ]
 }
