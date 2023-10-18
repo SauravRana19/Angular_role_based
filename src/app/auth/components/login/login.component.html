@@ -10,7 +10,7 @@
                 <label for="inputtext-left">Email</label>
                 <span class=" p-input-icon-left">
                     <i class="pi pi-user"></i>
-                    <input type="text" id="inputtext-left" formControlName="email" pInputText pTooltip="Enter email"
+                    <input type="text"  formControlName="email" pInputText pTooltip="Enter email"
                         pInputText>
                 </span>
                 <span
@@ -24,7 +24,7 @@
                 <label for="inputtext-left">Password</label>
                 <span class=" p-input-icon-right">
                     <i [ngClass]=" pswd ? 'pi pi-eye' : 'pi pi-eye-slash' " (click)="pswd = !pswd"></i>
-                    <input [type]=" pswd ? 'password' :'text'" id="inputtext-left" formControlName="password"
+                    <input [type]=" pswd ? 'password' :'text'"  formControlName="password"
                         pTooltip="Enter Password" pInputText>
                 </span>
                 <span

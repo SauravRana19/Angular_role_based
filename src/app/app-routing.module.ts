@@ -10,7 +10,6 @@ const routes: Routes = [
     redirectTo: 'auth',
     pathMatch: 'full',
   },
-  // { path: '**', component: PagenotfoundComponent },
 
   {
     path: 'auth',
@@ -27,11 +26,11 @@ const routes: Routes = [
       },
     ],
   },
-  // {
-  //   path: 'feature',
-  //   loadChildren: () => import('./feature/feature.module')
-  //   .then(m => m.FeatureModule)
-  // },
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: PagenotfoundComponent, 
+  }
 ];
 
 @NgModule({

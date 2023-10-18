@@ -18,26 +18,32 @@ const routes: Routes = [
     path: 'users',
     component: usersComponent,
     canActivate: [AuthguardGuard],
+    data : { role : ['superadmin','admin','user']}
   },
+
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthguardGuard],
+     data : { role : ['superadmin','admin']}
   },
   {
     path: 'taskview',
     component: TaskviewComponent,
     canActivate: [AuthguardGuard],
+    data : { role : ['superadmin','admin','user']}
   },
   {
     path: 'taskboard',
     component: TaskboardComponent,
     canActivate: [AuthguardGuard],
+    data : { role : ['superadmin','admin','user','viewer']}
   },
   {
     path: 'viewer',
     component: ViewerComponent,
     canActivate: [AuthguardGuard],
+    data : { role : ['superadmin','admin','user','viewer']}
   },
 ];
 
