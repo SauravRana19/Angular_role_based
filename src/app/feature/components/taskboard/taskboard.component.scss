@@ -1,5 +1,6 @@
 [pDraggable] {
   cursor: move;
+  
 }
 
 .li {
@@ -9,22 +10,43 @@
 }
 :host ::ng-deep {
   .p-card.p-component {
-    border: 1px solid black;
-    //  margin: 2rem 0 0 0;
+    border:  1px solid black;
     height: 100%;
+    border-radius: 0px 0px 10px 10px;
+    border-top: none;
+    box-shadow: 9px 13px 20px 0px #b3a9a9;
   }
+  .p-card .p-card-content {
+    padding: 0;
+  }
+//   .p-card .p-card-content-active {
+//     background-color: red;
+//   }
 }
 .title {
   text-transform: capitalize;
-  
+  background-color: #ba732b;
+  border: 1px solid black;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: none;
+  display: flex;
+  font-size: 20px;
+  padding: 0 0 0 10%;
+  color: whitesmoke;
 }
 // ::ng-deep .p-card .p-card-title{
 //     background-color: blue !important;
 // }
 
 ::ng-deep .p-fieldset {
-    margin: 1rem 0 0 0;
-    padding: 0 0 0 0;
-    background-color: rgb(80, 185, 186);
+    margin: 2% 0 0 15% ;
+    // background-color: rgb(80, 185, 186);
     border-radius: 10px;
+    width: 70%;
+    border: 1px solid burlywood;
+    border-bottom: none;
+    
+}
+.list{
+    border-bottom: 1px solid #ddd;
 }

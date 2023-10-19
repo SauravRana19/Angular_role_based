@@ -49,7 +49,6 @@ export class ApiService {
         });
 
         if (JSON.parse(localStorage.getItem('credential')!)[1] == 'viewer') {
-          console.log(JSON.parse(localStorage.getItem('credential')!)[1]);
           this.router.navigate(['main/viewer']);
         } else if (
           JSON.parse(localStorage.getItem('credential')!)[1] !== 'viewer'

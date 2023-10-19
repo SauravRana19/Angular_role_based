@@ -18,7 +18,8 @@ export class UserformComponent implements OnInit {
   display: any;
   pswd: boolean = true;
   submitbtn: boolean = true;
-  profileupdate:boolean = false
+  profileupdate: boolean = false;
+  roledrop: boolean = false;
 
   gender = [{ value: 'Male' }, { value: 'Female' }, { value: 'Other' }];
   role = [{ value: 'admin' }, { value: 'user' }, { value: 'viewer' }];
@@ -40,16 +41,15 @@ export class UserformComponent implements OnInit {
       this.display = res;
     });
     this.changestatus(JSON.parse(localStorage.getItem('credential')!)[1]);
+    if (JSON.parse(localStorage.getItem('credential')!)[1] == 'viewer') {
+      this.roledrop = true;
+    }
   }
-  updateuser(i: number) {
+  updateuser(data: object) {
     this.display = true;
-    this.api.userdata();
     this.submitbtn = false;
-    this.api.data.subscribe((res: any) => {
-      let data = res[i];
-      this.userform.patchValue({
-        ...data,
-      });
+    this.userform.patchValue({
+      ...data,
     });
   }
   resetform() {
@@ -58,7 +58,6 @@ export class UserformComponent implements OnInit {
   closeform() {
     this.submitbtn = true;
     this.common.modalvalue.next(false);
-    
   }
 
   showDialog() {}
@@ -71,29 +70,26 @@ export class UserformComponent implements OnInit {
       this.api.addUser(this.userform.value).subscribe((res) => {});
     } else if (!this.submitbtn) {
       this.api.updateUser(this.userform.value).subscribe((res) => {
-        if(this.profileupdate){
-          this.api.userprofile(JSON.parse(localStorage.getItem('credential')!)[0])
+        if (this.profileupdate) {
+          this.api.userprofile(
+            JSON.parse(localStorage.getItem('credential')!)[0]
+          );
         }
       });
     }
   }
   changestatus(value: string) {
-    // console.log('value', value);
     if (value == 'user') {
-      this.role = [ { value: 'viewer' }];
+      this.role = [{ value: 'viewer' }];
     }
   }
-  editprofile(i:number){
-    console.log('click', i);
+  editprofile(data: object) {
+    console.log('click', data);
     this.display = true;
-    this.api.userprofile(i)
     this.submitbtn = false;
     this.profileupdate = true;
-    this.api.profiledata.subscribe((res: any) => {
-      let data = res;
-      this.userform.patchValue({
-        ...data,
-      });
+    this.userform.patchValue({
+      ...data,
     });
   }
 }

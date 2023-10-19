@@ -38,7 +38,7 @@ export class usersComponent implements OnInit {
     this.common.modalf();
     this.childComponent?.resetform();
   }
-  update(i: number) {
+  update(i: object){
     this.childComponent?.updateuser(i);
   }
   delete(i: number) {

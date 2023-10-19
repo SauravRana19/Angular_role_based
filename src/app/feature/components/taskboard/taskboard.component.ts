@@ -14,21 +14,20 @@ export class TaskboardComponent implements OnInit {
 
   tasks: any = {};
   dragid!: number;
-  dragstatus!: any;
-  loading = false;
-  draggedProduct: any;
-  availableProducts: any;
-  selectedProducts: any;
+  dragstatus!: string;
+  loading: boolean = false;
+  bloacker: boolean = false;
 
   dragStart(dragitem: any) {
-    console.log("drag",dragitem);
+    console.log('drag', dragitem);
 
     this.dragid = dragitem.id;
     this.dragstatus = dragitem.status;
   }
   drop(item: any) {
-    console.log("drop",item);
-    this.api.updatetask(this.dragid, item ).subscribe((res) => {
+    console.log('drop', item);
+    this.bloacker = true;
+    this.api.updatetask(this.dragid, item).subscribe((res) => {
       console.log('res', res);
       this.fetchTasks();
     });
@@ -43,13 +42,18 @@ export class TaskboardComponent implements OnInit {
   fetchTasks() {
     this.api.taskData();
     this.loading = true;
+
     this.api.taskdata.subscribe((res) => {
       this.loading = false;
+
       this.tasks = {
         todo: this.filterTask('todo', res),
         pending: this.filterTask('pending', res),
         done: this.filterTask('done', res),
       };
+      if (res.length) {
+        this.bloacker = false;
+      }
     });
   }
 }

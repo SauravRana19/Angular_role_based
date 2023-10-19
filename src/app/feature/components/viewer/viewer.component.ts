@@ -22,8 +22,8 @@ export class ViewerComponent implements OnInit {
       this.profile = res;
     });
   }
-  edit(id:number){
-    this.childComponent?.editprofile(id)
+  edit(data:object){
+    this.childComponent?.editprofile(data)
   }
   
 }

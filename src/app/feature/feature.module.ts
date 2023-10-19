@@ -24,6 +24,7 @@ import { PiechartComponent } from './components/dashboard/charts/piechart/piecha
 import { LinechartComponent } from './components/dashboard/charts/linechart/linechart.component';
 import { PolarchartComponent } from './components/dashboard/charts/polarchart/polarchart.component';
 import {FieldsetModule} from 'primeng/fieldset';
+import {BlockUIModule} from 'primeng/blockui';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {FieldsetModule} from 'primeng/fieldset';
     SkeletonModule,
     ProgressSpinnerModule,
     FieldsetModule,
+    BlockUIModule,
   ],
 })
 export class FeatureModule {}

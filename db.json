@@ -47,13 +47,13 @@
     {
       "id": 5,
       "firstname": "sakshi",
-      "lastname": "singh",
+      "lastname": "rana",
       "gender": "Female",
       "email": "sakshi19@gmail.com",
       "password": "sakshi19@D",
       "role": "user",
       "address": "chd",
-      "createdby": 2
+      "createdby": 1
     },
     {
       "id": 6,
@@ -69,7 +69,7 @@
     {
       "id": 7,
       "firstname": "akshay",
-      "lastname": "kumar",
+      "lastname": "rana",
       "gender": "Male",
       "email": "akshay20@gmail.com",
       "password": "akshy87@gW",
@@ -128,7 +128,7 @@
     {
       "id": 4,
       "task": "change name",
-      "status": "todo",
+      "status": "pending",
       "assignto": "sunnydeol20@gmail.com",
       "assignby": "",
       "createdby": 8
@@ -136,7 +136,7 @@
     {
       "id": 5,
       "task": "bottle replace",
-      "status": "todo",
+      "status": "pending",
       "assignto": "rahul19@gmail.com",
       "assignby": "",
       "createdby": 1
@@ -144,7 +144,7 @@
     {
       "id": 6,
       "task": "position relative remove ?",
-      "status": "done",
+      "status": "todo",
       "assignto": "rahul19@gmail.com",
       "assignby": "",
       "createdby": 1
