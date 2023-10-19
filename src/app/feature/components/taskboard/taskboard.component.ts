@@ -9,28 +9,8 @@ import { ApiService } from 'src/app/core/services/api/api.service';
 export class TaskboardComponent implements OnInit {
   constructor(private api: ApiService) {}
   ngOnInit(): void {
-    // this.assignvalues();
     this.fetchTasks();
   }
-  ngAfterViewInit() {}
-  cards: any = [
-    {
-      title: 'Task',
-      task: [],
-    },
-    {
-      title: 'Progress',
-      task: [],
-    },
-    // {
-    //   title: 'Review',
-    //   task: [],
-    // },
-    {
-      title: 'todo',
-      task: [],
-    },
-  ];
 
   tasks: any = {};
   dragid!: number;
@@ -46,28 +26,12 @@ export class TaskboardComponent implements OnInit {
     this.dragid = dragitem.id;
     this.dragstatus = dragitem.status;
   }
-  dragEnd(item: any) {
-    this.dragstatus = item.status;
-    console.log('end', this.dragid, this.dragstatus);
-    this.api.updatetask(this.dragid, this.dragstatus).subscribe((res) => {
-      console.log('res', res);
-    });
-    this.fetchTasks();
-  }
-  // findIndex(product: any) {
-  //   let index = -1;
-  //   for (let i = 0; i < this.availableProducts.length; i++) {
-  //     if (product.id === this.availableProducts[i].id) {
-  //       index = i;
-  //       break;
-  //     }
-  //   }
-  //   return index;
-  // }
   drop(item: any) {
-    console.log("");
-    
-    this.dragEnd(item);
+    console.log("drop",item);
+    this.api.updatetask(this.dragid, item ).subscribe((res) => {
+      console.log('res', res);
+      this.fetchTasks();
+    });
   }
 
   filterTask(status: string, tasks: any): any[] {

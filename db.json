@@ -104,7 +104,7 @@
     {
       "id": 1,
       "task": "time schedul ?",
-      "status": "todo",
+      "status": "done",
       "assignto": "saurav19@gmail.com",
       "assignby": "",
       "createdby": 1
@@ -112,7 +112,7 @@
     {
       "id": 2,
       "task": "change header",
-      "status": "todo",
+      "status": "pending",
       "assignto": "saurav19@gmail.com",
       "assignby": null,
       "createdby": 1
@@ -120,7 +120,7 @@
     {
       "id": 3,
       "task": "change name of header",
-      "status": "pending",
+      "status": "done",
       "assignto": "rahul19@gmail.com",
       "assignby": null,
       "createdby": 1
@@ -132,6 +132,22 @@
       "assignto": "sunnydeol20@gmail.com",
       "assignby": "",
       "createdby": 8
+    },
+    {
+      "id": 5,
+      "task": "bottle replace",
+      "status": "todo",
+      "assignto": "rahul19@gmail.com",
+      "assignby": "",
+      "createdby": 1
+    },
+    {
+      "id": 6,
+      "task": "position relative remove ?",
+      "status": "done",
+      "assignto": "rahul19@gmail.com",
+      "assignby": "",
+      "createdby": 1
     }
   ]
 }

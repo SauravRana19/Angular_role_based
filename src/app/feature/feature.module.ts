@@ -23,6 +23,7 @@ import { BarchartComponent } from './components/dashboard/charts/barchart/barcha
 import { PiechartComponent } from './components/dashboard/charts/piechart/piechart.component';
 import { LinechartComponent } from './components/dashboard/charts/linechart/linechart.component';
 import { PolarchartComponent } from './components/dashboard/charts/polarchart/polarchart.component';
+import {FieldsetModule} from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { PolarchartComponent } from './components/dashboard/charts/polarchart/po
     CardModule,
     SkeletonModule,
     ProgressSpinnerModule,
+    FieldsetModule,
   ],
 })
 export class FeatureModule {}
