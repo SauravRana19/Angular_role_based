@@ -67,7 +67,10 @@ export class UserformComponent implements OnInit {
       createdby: JSON.parse(localStorage.getItem('credential')!)[0],
     });
     if (this.submitbtn) {
-      this.api.addUser(this.userform.value).subscribe((res) => {});
+      this.api.addUser(this.userform.value).subscribe((res) => {
+        console.log('res', res);
+        this.api.userdata();
+      });
     } else if (!this.submitbtn) {
       this.api.updateUser(this.userform.value).subscribe((res) => {
         if (this.profileupdate) {

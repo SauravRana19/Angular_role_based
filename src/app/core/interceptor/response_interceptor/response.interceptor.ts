@@ -31,7 +31,6 @@ export class ResponseInterceptor implements HttpInterceptor {
                 positionClass: 'toast-bottom-right',
                 progressBar: true,
               });
-              this.api.userdata();
               msg = res.statusText;
             }
           }

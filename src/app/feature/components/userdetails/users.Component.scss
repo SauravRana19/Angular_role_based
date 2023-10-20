@@ -1,6 +1,11 @@
-.loader{
-    position: fixed;
-    left: 50%;
-    top: 40%;
-    z-index: 9999;
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  z-index: 9999;
+}
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
 }

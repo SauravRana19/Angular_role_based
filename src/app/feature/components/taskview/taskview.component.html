@@ -29,5 +29,5 @@
         </tr>
     </ng-template>
 </p-table>
-<p-progressSpinner *ngIf="!tasks.length" [ngClass]="'loader'"></p-progressSpinner>
+<p-progressSpinner *ngIf="!tasks" [ngClass]="'loader'"></p-progressSpinner>
 <app-taskform #taskComponent></app-taskform>

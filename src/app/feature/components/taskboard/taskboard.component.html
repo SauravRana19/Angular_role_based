@@ -1,14 +1,15 @@
 <p-fieldset #pnl legend="Task-Board">
-    <div class="grid" *ngIf="!loading">
-        <div class="col-4 drag-column" *ngFor="let task  of tasks | keyvalue" [ngClass]="'cards'"
-            pDroppable="products" (onDrop)="drop(task.key)" >
-
-            <span [ngClass]="'title'">{{task.key}}</span>
+    <div class="grid">
+        <div class="col-4  drag-column" pDroppable="cards" *ngFor="let card of cards; let i=index" [ngClass]="'cards'"
+            (onDrop)="drop(card,i)">
+            <span [ngClass]="'title'" [style]="{backgroundColor: card.color}">{{card.title}}</span>
             <p-card>
-                <span *ngFor="let item of $any(task).value ;let i='index'" [ngClass]="'li'">
+                <span *ngFor="let data of card.task ;let j='index'" [ngClass]="'li'">
                     <div>
-                        <li class="product-item list" pDraggable="products" dragEffect="linkMove" (onDragStart)="dragStart(item)">
-                            {{i+1}}. {{item.task}}
+                        <!-- [ngStyle]="{'border-left-color':priortyColor[data.priority]}" -->
+                        <li class="product-item list" pDraggable="cards" dragEffect="linkMove"
+                            (onDragStart)="dragStart(data,i,j)" (onDragEnd)="dragEnd()">
+                            <i class="pi pi-list"></i> {{data.task}}
                         </li>
                     </div>
                 </span>
@@ -16,6 +17,3 @@
         </div>
     </div>
 </p-fieldset>
-<p-blockUI  [blocked]="bloacker">
-    <i class="pi pi-clock" style="font-size: 3rem">...</i>
-</p-blockUI>

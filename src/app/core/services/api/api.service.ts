@@ -23,7 +23,7 @@ export class ApiService {
   public profile: Subject<any> = new Subject<any>();
   public profiledata: Observable<[]> = this.profile.asObservable();
 
-  public usertask: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  public usertask: Subject<any> = new Subject<any>();
   public taskdata: Observable<[]> = this.usertask.asObservable();
 
   login(data: any) {

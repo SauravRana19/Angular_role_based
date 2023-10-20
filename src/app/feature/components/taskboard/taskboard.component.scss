@@ -34,6 +34,9 @@
   padding: 0 0 0 10%;
   color: whitesmoke;
 }
+.cardtitle{
+  margin: 10px;
+}
 // ::ng-deep .p-card .p-card-title{
 //     background-color: blue !important;
 // }
@@ -49,4 +52,8 @@
 }
 .list{
     border-bottom: 1px solid #ddd;
+    padding: 4% 0;
+    padding-left: 4%;
+    border-left: 7px solid transparent;
+    margin-bottom: 1%;
 }

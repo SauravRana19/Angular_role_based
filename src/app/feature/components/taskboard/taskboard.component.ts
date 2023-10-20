@@ -8,52 +8,47 @@ import { ApiService } from 'src/app/core/services/api/api.service';
 })
 export class TaskboardComponent implements OnInit {
   constructor(private api: ApiService) {}
+  // priortyColor:any  = {low:"#1f62de",medium:"#1fde8b",high:"#de2c1f"}
+  loading!: boolean;
+  cards: any = [
+    { title: 'todo', task: [], color: '#295bac' },
+    { title: 'pending', task: [], color: '#eab308' },
+    { title: 'done', task: [], color: '#188a42' },
+  ];
+
+  draggitem: any = [];
+
   ngOnInit(): void {
     this.fetchTasks();
   }
 
-  tasks: any = {};
-  dragid!: number;
-  dragstatus!: string;
-  loading: boolean = false;
-  bloacker: boolean = false;
-
-  dragStart(dragitem: any) {
-    console.log('drag', dragitem);
-
-    this.dragid = dragitem.id;
-    this.dragstatus = dragitem.status;
-  }
-  drop(item: any) {
-    console.log('drop', item);
-    this.bloacker = true;
-    this.api.updatetask(this.dragid, item).subscribe((res) => {
-      console.log('res', res);
-      this.fetchTasks();
-    });
-  }
-
-  filterTask(status: string, tasks: any): any[] {
-    return tasks.filter((task: any) => {
-      if (task.status === status) return task;
-    });
-  }
-
   fetchTasks() {
     this.api.taskData();
-    this.loading = true;
-
     this.api.taskdata.subscribe((res) => {
-      this.loading = false;
+      console.log(res);
 
-      this.tasks = {
-        todo: this.filterTask('todo', res),
-        pending: this.filterTask('pending', res),
-        done: this.filterTask('done', res),
-      };
-      if (res.length) {
-        this.bloacker = false;
-      }
+      res.filter((item: any) => {
+        if (item.status == 'pending') {
+          return this.cards[1].task.push(item);
+        }
+        if (item.status == 'todo') {
+          return this.cards[0].task.push(item);
+        }
+        if (item.status == 'done') {
+          return this.cards[2].task.push(item);
+        }
+      });
     });
   }
+
+  dragStart(dragitem: any, i: number, j: number) {
+    this.draggitem.push(dragitem, i, j);
+  }
+  drop(data: any, i: number) {
+    this.cards[i].task.push(this.draggitem[0]);
+    this.cards[this.draggitem[1]].task.splice(this.draggitem[2], 1);
+    this.api.updatetask(this.draggitem[0].id, data.title).subscribe()
+    this.draggitem = [];
+  }
+  dragEnd() {}
 }
