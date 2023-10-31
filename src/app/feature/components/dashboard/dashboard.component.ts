@@ -8,11 +8,10 @@ import { ApiService } from 'src/app/core/services/api/api.service';
 export class DashboardComponent implements OnInit {
   constructor(private api: ApiService) {}
   data: any = [];
-  loading:boolean = false
+  loading: boolean = false;
   ngOnInit(): void {
     this.api.userdata();
     this.api.response.subscribe((res) => {
-      console.log(res);
       this.data.push(res.length);
       let admin: any = [];
       let users: any = [];
@@ -20,23 +19,23 @@ export class DashboardComponent implements OnInit {
       let male: any = [];
       let female: any = [];
       res.filter((user: any) => {
-        if (user.role == 'admin') {
-          return admin.push(user);
+        switch (user.role) {
+          case 'admin':
+            admin.push(user);
+            break;
+          case 'user':
+            users.push(user);
+            break;
+          case 'viewer':
+            viewer.push(user);
+            break;
         }
-        if (user.role == 'user') {
-          return users.push(user);
-        }
-        if (user.role == 'viewer') {
-          return viewer.push(user);
-        }
-      });
-
-      res.filter((user: any) => {
-        if (user.gender == 'Male') {
-          return male.push(user);
-        }
-        if (user.gender == 'Female') {
-          return female.push(user);
+        switch (user.gender) {
+          case 'Male':
+            male.push(user);
+            break;
+          default:
+            female.push(user);
         }
       });
       this.data.push(admin.length);
@@ -44,7 +43,7 @@ export class DashboardComponent implements OnInit {
       this.data.push(viewer.length);
       this.data.push(male.length);
       this.data.push(female.length);
-      this.loading = true
+      this.loading = true;
       console.log(this.data);
     });
   }
